@@ -84,6 +84,56 @@ GROUP BY
         ELSE 'High'
     END;
 ```
+### What is the `HAVING` Clause in SQL?
+
+The **`HAVING`** clause is used to **filter the results of a `GROUP BY` clause** in SQL. It works like the `WHERE` clause, but instead of filtering individual rows, `HAVING` filters **groups** created by `GROUP BY`.
+
+---
+
+### 🔑 Key Points:
+- `WHERE` filters **rows** before grouping.
+- `HAVING` filters **groups** after aggregation.
+- Used with aggregate functions like `AVG()`, `SUM()`, `COUNT()`, etc.
+
+---
+
+### ✅ Syntax:
+```sql
+SELECT column, AGGREGATE_FUNCTION(column)
+FROM table
+GROUP BY column
+HAVING condition_on_aggregate_function;
+```
+
+---
+
+### ✅ Example:
+
+Suppose you have a table called `employees`:
+
+| id | name   | department | salary |
+|----|--------|------------|--------|
+| 1  | Alice  | HR         | 50000  |
+| 2  | Bob    | IT         | 80000  |
+| 3  | Carol  | IT         | 90000  |
+| 4  | Dave   | HR         | 60000  |
+
+Query:
+```sql
+SELECT department, AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department
+HAVING AVG(salary) > 70000;
+```
+
+### 🔍 Result:
+| department | avg_salary |
+|------------|------------|
+| IT         | 85000      |
+
+Only the **IT** department is shown because its average salary is greater than 70,000.
+
+---
 
 ### HAVING Clause
 ```sql
