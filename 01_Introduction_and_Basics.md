@@ -71,6 +71,104 @@ SQL (Structured Query Language) is a programming language designed for managing 
 - Must be in 2NF
 - Eliminate transitive dependencies
 
+Great question!
+
+---
+
+### 📘 **What is a Clause in SQL?**
+
+A **clause** is a **part of an SQL statement** that performs a specific task.
+
+---
+
+### 🧱 Common SQL Clauses (with simple meanings):
+
+| Clause     | Purpose                                                         |
+| ---------- | --------------------------------------------------------------- |
+| `SELECT`   | Specifies **what columns or values** to return                  |
+| `FROM`     | Tells SQL **which table(s)** to get the data from               |
+| `WHERE`    | Filters rows based on a **condition**                           |
+| `GROUP BY` | Groups rows that have the same values in specified columns      |
+| `HAVING`   | Filters groups (used with `GROUP BY`)                           |
+| `ORDER BY` | Sorts the result set (ASC/DESC)                                 |
+| `LIMIT`    | Limits the number of rows returned                              |
+| `JOIN`     | Combines rows from two or more tables based on a related column |
+
+---
+
+### 📌 Example with Clauses Labeled:
+
+```sql
+SELECT name, salary          -- SELECT clause
+FROM employees               -- FROM clause
+WHERE department = 'IT'      -- WHERE clause
+ORDER BY salary DESC         -- ORDER BY clause
+LIMIT 5;                     -- LIMIT clause
+```
+
+Each of those lines is a **clause** — together they form a complete SQL statement.
+
+---
+
+### 💡 In Summary:
+
+> A **clause** is a **building block** of an SQL statement.
+> Think of it as a **keyword + its logic** that tells the database *what to do* at each step.
+
+--- 
+Great question! Understanding the **names of parts** of an SQL query will help you **read and write** queries more effectively. Let’s break down this example:
+
+```sql
+SELECT COUNT(salary)
+FROM employee
+WHERE hire_date = '2023-01-13';
+```
+
+---
+
+### 🔍 Breakdown with Part Names:
+
+| SQL Code                   | What It’s Called (Name)              | Description                                                     |
+| -------------------------- | ------------------------------------ | --------------------------------------------------------------- |
+| `SELECT`                   | **Keyword / Clause** (SELECT clause) | Used to specify **what to return** (columns, expressions, etc.) |
+| `COUNT(salary)`            | **Aggregate Function / Expression**  | Function that counts non-NULL `salary` values                   |
+| `salary`                   | **Column Name**                      | Refers to a specific field in the `employee` table              |
+| `FROM`                     | **Keyword / Clause** (FROM clause)   | Specifies **which table** the data comes from                   |
+| `employee`                 | **Table Name**                       | The table being queried                                         |
+| `WHERE`                    | **Keyword / Clause** (WHERE clause)  | Filters rows based on a condition                               |
+| `hire_date = '2023-01-13'` | **Condition / Predicate**            | Logical test to filter rows (only those hired on this date)     |
+| `'2023-01-13'`             | **Literal (String / Date Constant)** | A hardcoded date value used in the condition                    |
+
+---
+
+### 🧠 Category Summary
+
+| SQL Part                 | Category Type           | Example                         |
+| ------------------------ | ----------------------- | ------------------------------- |
+| SQL Clauses              | Control query structure | `SELECT`, `FROM`, `WHERE`, etc. |
+| Functions                | Built-in operations     | `COUNT()`, `SUM()`, `AVG()`     |
+| Columns & Tables         | Schema elements         | `salary`, `employee`            |
+| Conditions / Expressions | Logic filters           | `hire_date = '2023-01-13'`      |
+| Literals / Constants     | Fixed values            | `'2023-01-13'`, `5000`, `'HR'`  |
+
+---
+
+### 🌐 Full Named Version of the Query:
+
+```sql
+-- SELECT clause with an aggregate function expression
+SELECT COUNT(salary) 
+
+-- FROM clause identifying the source table
+FROM employee
+
+-- WHERE clause filtering rows by a condition
+WHERE hire_date = '2023-01-13';
+```
+
+---
+
+
 ### Example Database Schema
 ```sql
 -- Customers table
