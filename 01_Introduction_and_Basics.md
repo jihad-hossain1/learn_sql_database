@@ -78,7 +78,7 @@ Great question!
 ### 📘 **What is a Clause in SQL?**
 
 A **clause** is a **part of an SQL statement** that performs a specific task.
-
+> You can think of a clause like a section of a sentence — each clause has a job, like selecting data, filtering it, grouping it, etc.
 ---
 
 ### 🧱 Common SQL Clauses (with simple meanings):
