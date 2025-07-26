@@ -116,7 +116,7 @@ Each of those lines is a **clause** — together they form a complete SQL statem
 > Think of it as a **keyword + its logic** that tells the database *what to do* at each step.
 
 --- 
-Great question! Understanding the **names of parts** of an SQL query will help you **read and write** queries more effectively. Let’s break down this example:
+Understanding the **names of parts** of an SQL query will help you **read and write** queries more effectively. Let’s break down this example:
 
 ```sql
 SELECT COUNT(salary)
