@@ -158,6 +158,89 @@ HAVING AVG(salary) > 70000;
 ```
 
 ---
+The **`INNER JOIN`** is one of the most commonly used types of joins in SQL. It combines rows from two or more tables based on a related column between them. The result includes only the rows where there's a **match in both tables**.
+
+---
+
+### ✅ **Basic Concept of JOIN**
+
+```sql
+SELECT ...
+FROM table1
+INNER JOIN table2 ON table1.column = table2.column;
+```
+
+* It **returns rows** when the condition in the `ON` clause is **true** for both tables.
+* If there’s **no match**, the row is **not included** in the result.
+
+---
+
+### 🔍 Example Breakdown
+
+#### 1. **Basic Inner Join**
+
+```sql
+SELECT e.first_name, e.last_name, d.dept_name
+FROM employees e
+INNER JOIN departments d ON e.dept_id = d.dept_id;
+```
+
+🧠 **Explanation:**
+
+* Joins `employees` (`e`) and `departments` (`d`) using the `dept_id` column.
+* Only employees who are assigned to a valid department (where `e.dept_id = d.dept_id`) are included.
+* Retrieves each employee's **first name**, **last name**, and **department name**.
+
+---
+
+#### 2. **Inner Join with Conditions**
+
+```sql
+SELECT e.first_name, e.last_name, d.dept_name, e.salary
+FROM employees e
+INNER JOIN departments d ON e.dept_id = d.dept_id
+WHERE e.salary > 70000;
+```
+
+🧠 **Explanation:**
+
+* Same join as before, but now includes an extra **filter condition** in the `WHERE` clause.
+* Only shows employees who:
+
+  * Have a matching department, and
+  * Earn more than **70,000**.
+
+---
+
+#### 3. **Multiple Table Joins**
+
+```sql
+SELECT e.first_name, e.last_name, d.dept_name, p.project_name
+FROM employees e
+INNER JOIN departments d ON e.dept_id = d.dept_id
+INNER JOIN projects p ON d.dept_id = p.dept_id;
+```
+
+🧠 **Explanation:**
+
+* Joins **three tables**: `employees`, `departments`, and `projects`.
+* `employees` is linked to `departments` via `e.dept_id = d.dept_id`.
+* `departments` is linked to `projects` via `d.dept_id = p.dept_id`.
+* Shows employees, their departments, and the **projects handled by their department**.
+
+---
+
+### 💡 Key Points to Remember
+
+| Feature                | Description                                                  |
+| ---------------------- | ------------------------------------------------------------ |
+| Type                   | `INNER JOIN`                                                 |
+| Matching Rows Only     | Returns **only** rows with matches in **both** joined tables |
+| Multiple Joins Allowed | Yes, you can chain multiple `INNER JOIN`s                    |
+| Filter Support         | Use `WHERE` clause for additional filtering                  |
+| Join Syntax            | `ON` keyword is used to specify how tables are related       |
+
+---
 
 ## Joins
 
