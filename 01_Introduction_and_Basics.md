@@ -36,7 +36,7 @@ A database is an organized collection of structured information, or data, typica
 SQL (Structured Query Language) is a programming language designed for managing and manipulating relational databases.
 
 ### SQL Categories
-1. **DDL (Data Definition Language)**: CREATE, ALTER, DROP
+1. **DDL (Data Definition Language)**: CREATE, ALTER, DROP (Details)[./DDL.md]
 2. **DML (Data Manipulation Language)**: INSERT, UPDATE, DELETE
 3. **DQL (Data Query Language)**: SELECT
 4. **DCL (Data Control Language)**: GRANT, REVOKE
