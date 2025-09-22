@@ -5,12 +5,14 @@ const mysql = require("mysql2/promise");
 const app = express();
 const port = 7000;
 
+// admin:admin@supreme-space-computing-machine-p6pvqw6p9wqcv64-3306.app.github.dev:3306
+
 // MySQL connection config
 const pool = mysql.createPool({
-  host: "localhost",
+  host: "127.0.0.1",
   user: "admin",
   password: "admin",
-  database: "testdb",
+  database: "mydb",
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
@@ -31,34 +33,36 @@ const majors = [
 ];
 
 // Route to insert fake student data
-app.get("/students", async (req, res) => {
+app.get("/users", async (req, res) => {
   const count = parseInt(req.query.count) || 30;
 
   try {
     const connection = await pool.getConnection();
 
-    const insertQuery = `
-      INSERT INTO students (first_name, last_name, email, age, major, gpa)
-      VALUES (?, ?, ?, ?, ?, ?)
-    `;
+    // const insertQuery = `
+    //   INSERT INTO students (first_name, last_name, email, age, major, gpa)
+    //   VALUES (?, ?, ?, ?, ?, ?)
+    // `;
 
-    for (let i = 0; i < count; i++) {
-      const firstName = faker.person.firstName();
-      const lastName = faker.person.lastName();
-      const email = faker.internet.email({ firstName, lastName });
-      const age = faker.number.int({ min: 18, max: 25 });
-      const major = faker.helpers.arrayElement(majors);
-      const gpa = (Math.random() * 2 + 2).toFixed(2); // GPA: 2.00–4.00
+    // for (let i = 0; i < count; i++) {
+    //   const firstName = faker.person.firstName();
+    //   const lastName = faker.person.lastName();
+    //   const email = faker.internet.email({ firstName, lastName });
+    //   const age = faker.number.int({ min: 18, max: 25 });
+    //   const major = faker.helpers.arrayElement(majors);
+    //   const gpa = (Math.random() * 2 + 2).toFixed(2); // GPA: 2.00–4.00
 
-      await connection.execute(insertQuery, [
-        firstName,
-        lastName,
-        email,
-        age,
-        major,
-        gpa,
-      ]);
-    }
+    //   await connection.execute(insertQuery, [
+    //     firstName,
+    //     lastName,
+    //     email,
+    //     age,
+    //     major,
+    //     gpa,
+    //   ]);
+    // }
+
+    await connection.execute('select * from USER;')
 
     connection.release();
     res.send(`${count} fake students inserted successfully.`);
